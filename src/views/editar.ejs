@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Edit Task</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+	<div class="container">
+		<div class="container-task">
+			<form action="/editTask/<%=task._id %>" class="task__form" method="post">
+				<label for="title" class="task__label">Title</label>
+				<input type="text" name="title" class="task__input" placeholder="<%= task.title %>">
+				<label for="description" class="task__label">Description</label>
+				<textarea name="description" rows="2" class="task__input" placeholder="<%= task.description %>"></textarea>
+				<input type="submit" value="Enviar" class="task__input task__input--btn">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

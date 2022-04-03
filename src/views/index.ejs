@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CRUD NodeJS</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="container-task">
+			<form action="/saveTask" class="task__form" method="post">
+				<label for="title" class="task__label">Title</label>
+				<input type="text" name="title" class="task__input" placeholder="Title">
+				<label for="description" class="task__label">Description</label>
+				<textarea name="description" rows="2" class="task__input" placeholder="Description"></textarea>
+				<input type="submit" value="Enviar" class="task__input task__input--btn">
+			</form>
+		</div>
+		<% if(tasks.length > 0) { %>
+			<div class="table-task">
+				<table class="table-task__table">
+					<thead class="table-task__thead">
+						<tr>
+							<th>Title</th>
+							<th>Description</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody class="table-task__tbody">
+						<% tasks.forEach(function(task) { %>
+    						<tr>
+    							<td><%= task.title %></td>
+    							<td><%= task.description %></td>
+    							<td>
+    								<button><a href="/editTask/<%=task._id %>">Edit</a></button>
+    								<button><a href="/deleteTask/<%=task._id %>">Delete</a></button>
+    							</td>
+    						</tr>
+ 						<% }); %> 
+					</tbody>
+				</table>
+			</div>
+		<% } %>
+	</div>
+</body>
+
+</html>
